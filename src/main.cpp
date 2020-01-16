@@ -1,9 +1,29 @@
 #include <Arduino.h>
 
-void setup() {
-  // put your setup code here, to run once:
+extern "C" {
+   #include "hcsr04.h"
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+double echotime = 0.0;
+uint16_t distance = 0;
+
+void setup() {
+
+    Serial.begin(9600);
+    DDRD |= (1<<LED_PIN);
+    PORTD |= (1<<LED_PIN);
+    setupHCSR04();
+
+}
+
+void loop() {   
+
+    sendTrigger();
+    waitEcho(&echotime);
+    pulseWidth(&distance, echotime);
+
+    Serial.println("************");
+    Serial.print("Echo time: "); Serial.println(echotime);
+    Serial.print("Disntace in cm: "); Serial.println(distance);
+    delay(1000);
 }
