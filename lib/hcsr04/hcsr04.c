@@ -1,5 +1,7 @@
 #include "hcsr04.h"
 
+// change micros() to timer1 counter
+
 void setupHCSR04() {
 
     // Set trig as output 
