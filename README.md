@@ -1,6 +1,6 @@
 # sonarHCSR04
 
-Simple lib to use when playing with the HCSR04 module.
+Simple lib to use when playing with the HCSR04 module and ATmega328 (+ Arduino Uno, Nano)
 
 ### Intructions
 Copy the hcsr04 folder inside lib directory to your project directory and include in the main *C* file like this:
